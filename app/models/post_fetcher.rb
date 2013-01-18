@@ -15,6 +15,11 @@ class PostFetcher
       @facebook
     end
 
+    def page
+      facebook
+      @page
+    end
+
     def get_new_posts
       posts = facebook.get_connections('radiosucesso.org', 'posts')
       @known_posts = posts.collect{|l| l['id']}

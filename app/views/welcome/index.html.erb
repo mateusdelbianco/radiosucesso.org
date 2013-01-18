@@ -1,8 +1,9 @@
-<h1>Rádio Sucesso</h1>
+<h1><%= link_to @page['name'], @page['link'], :target => '_blank' %> <small>(<%= pluralize(@page['likes'], 'like') %>)</small></h1>
+<h4><%= @page['about'] %></h4>
 <ul>
 <% @posts.each do |post| %>
   <li>
-    <%= link_to post.name, post.link, :target => '_blank' %> (<%= post.likes['count'] %>)
+    <%= link_to post.name, post.link, :target => '_blank' %> <small>(<%= pluralize(post.likes['count'], 'like') %>)</small>
   </li>
 <% end %>
 </ul>
