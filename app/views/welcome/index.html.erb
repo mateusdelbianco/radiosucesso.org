@@ -1,0 +1,8 @@
+<h1>Rádio Sucesso</h1>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <%= link_to post.name, post.link, :target => '_blank' %> (<%= post.likes['count'] %>)
+  </li>
+<% end %>
+</ul>
