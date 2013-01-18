@@ -3,7 +3,10 @@
 <ul>
 <% @posts.each do |post| %>
   <li>
-    <%= link_to post.name, post.link, :target => '_blank' %> <small>(<%= pluralize(post.likes['count'], 'like') %>)</small>
+    <%= link_to post.name, post.link, :target => '_blank' %>
+    <% if post.respond_to?(:likes) %>
+      <small>(<%= pluralize(post.likes['count'], 'like') %>)</small>
+    <% end %>
   </li>
 <% end %>
 </ul>
