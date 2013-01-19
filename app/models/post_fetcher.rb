@@ -3,7 +3,7 @@ class PostFetcher
 
   class << self
     def document
-      (first || new)
+      find_or_initialize_by(:fb_id => page['id'])
     end
 
     def facebook
@@ -21,21 +21,24 @@ class PostFetcher
     end
 
     def get_new_posts
+      @known_posts = []
       posts = facebook.get_connections('radiosucesso.org', 'posts')
-      @known_posts = posts.collect{|l| l['id']}
 
-      posts.each do |post|
-        Post.find_or_initialize_by(:fb_id => post['id']).update_attributes(post)
+      while posts.size > 0
+        @known_posts += posts.collect{|l| l['id']}
+
+        posts.each do |post|
+          Post.find_or_initialize_by(:fb_id => post['id']).update_attributes(post)
+        end
+
+        posts = posts.next_page
       end
     end
 
     def remove_old_posts
-      Post.where(:fb_id.nin => @known_posts).each do |post|
+      Post.where('from.id' => @page['id'], :fb_id.nin => @known_posts).each do |post|
         begin
-          object = facebook.get_object(post['fb_id'])
-          if object.try(:[], "from").try(:[], "id") != @page['id']
-            post.destroy
-          end
+          facebook.get_object(post['fb_id'])
         rescue Koala::Facebook::ClientError
           post.destroy
         end
