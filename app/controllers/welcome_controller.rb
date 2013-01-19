@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def index
     PostFetcher.synchronize_if_needed
     @page = PostFetcher.page
@@ -8,9 +7,6 @@ class WelcomeController < ApplicationController
 
   def next_id
     post = Post.only(:link, :name).sample
-    render json: {
-      title: post.name,
-      id: CGI.parse(URI.parse(post.link).query)['v'].first
-    }
+    render json: post.youtube_info
   end
 end
