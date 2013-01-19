@@ -1,5 +1,10 @@
-<h1><%= link_to @page['name'], @page['link'], :target => '_blank' %> <small>(<%= pluralize(@page['likes'], 'like') %>)</small></h1>
+<h1><%= link_to @page['name'], @page['link'], :target => '_blank' %></h1>
 <h4><%= @page['about'] %></h4>
+
+<div id="player"></div>
+<h4 class="title"></h4>
+
+<h5>Vídeos já postados:</h5>
 <ul>
 <% @posts.each do |post| %>
   <li>
@@ -10,3 +15,41 @@
   </li>
 <% end %>
 </ul>
+
+
+<script>
+  var tag = document.createElement('script');
+
+  tag.src = "//www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function getRandomVideo() {
+    $.get('/next_id', function (data) {
+      $('.title').html(data.title);
+      player.loadVideoById({videoId: data.id});
+    });
+  }
+
+  function onPlayerReady(event) {
+    getRandomVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+      getRandomVideo();
+    }
+  }
+</script>
