@@ -5,6 +5,16 @@
 <a href="#" class="video-next">próximo</a>
 
 <script>
+  function onPlayerReady(event) {
+    getRandomVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+      getRandomVideo();
+    }
+  }
+
   $(function () {
     $('.video-next').click(function (ev) {
       ev.preventDefault();

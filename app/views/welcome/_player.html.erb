@@ -31,14 +31,4 @@
     player.loadVideoById({videoId: data.id});
   }
 
-  function onPlayerReady(event) {
-    getRandomVideo();
-  }
-
-  function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.ENDED) {
-      getRandomVideo();
-    }
-  }
-
 </script>
