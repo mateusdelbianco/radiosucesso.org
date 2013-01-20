@@ -1,0 +1,28 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.player {
+  text-align: center;
+}
+
+#player {
+  width: 640px;
+  height: 390px;
+  display: inline-block;
+  background-color: #eee;
+}
+
+.actions {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.name .waiting {
+  color: #bbb;
+}

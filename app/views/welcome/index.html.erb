@@ -1,9 +1,19 @@
-<h1><%= link_to @page['name'], @page['link'], :target => '_blank' %></h1>
-<h4><%= @page['about'] %></h4>
+<div class="container">
+  <div class="row title">
+    <div class="span12">
+      <h1><%= link_to @page['name'], @page['link'], :target => '_blank' %></h1>
+      <h4><%= @page['about'] %></h4>
+    </div>
+  </div>
 
-<%= render 'player' %>
-<a href="#" class="video-next">próximo</a>
+  <%= render 'player' %>
 
+  <div class="row actions">
+    <div class="span12">
+      <a href="#" class="video-next">próximo</a>
+    </div>
+  </div>
+</div>
 <script>
   function onPlayerReady(event) {
     getRandomVideo();
