@@ -1,0 +1,25 @@
+<%= render 'player' %>
+
+<h5>Vídeos já postados:</h5>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <%= link_to post.name, post.link, :target => '_blank', :class => 'video-link', :'data-youtube-id' => post.youtube_id %>
+    <% if post.respond_to?(:likes) %>
+      <small>(<%= pluralize(post.likes['count'], 'like') %>)</small>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<script>
+  $(function () {
+    $('.video-link').click(function (ev) {
+      ev.preventDefault();
+      playVideo({
+        name: $(this).html(),
+        id: $(this).attr('data-youtube-id')
+      });
+    });
+  });
+</script>
