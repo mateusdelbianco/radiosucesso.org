@@ -12,6 +12,7 @@ class PostFetcher
       @oauth = Koala::Facebook::OAuth.new(ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'], '')
       @facebook = Koala::Facebook::API.new(@oauth.get_app_access_token)
       @page = @facebook.get_object('radiosucesso.org')
+      Post.find_or_initialize_by(:fb_id => @page['id']).update_attributes(@page)
       @facebook
     end
 
