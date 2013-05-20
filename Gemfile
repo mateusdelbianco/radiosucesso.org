@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
-gem 'rails', '3.2.11'
+ruby '2.0.0'
+gem 'rails'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem "mongoid", "~> 3.0.0"
+gem "mongoid"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'turbo-sprockets-rails3'
+
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'less-rails'
@@ -20,24 +19,12 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
 gem 'koala'
 gem 'newrelic_rpm'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 group :test, :development do
   gem 'debugger'
