@@ -4,6 +4,10 @@ ruby '2.0.0'
 gem 'rails'
 
 gem "mongoid"
+gem 'jquery-rails'
+gem 'koala'
+gem 'newrelic_rpm'
+gem 'unicorn'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,10 +25,6 @@ group :assets do
 
   gem 'uglifier'
 end
-
-gem 'jquery-rails'
-gem 'koala'
-gem 'newrelic_rpm'
 
 group :test, :development do
   gem 'debugger'
