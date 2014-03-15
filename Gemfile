@@ -9,22 +9,18 @@ gem 'koala'
 gem 'newrelic_rpm'
 gem 'unicorn'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'turbo-sprockets-rails3'
+gem 'turbo-sprockets-rails3'
 
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'less-rails'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'less-rails'
 
-  gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer'
 
-  gem 'uglifier'
-end
+gem 'uglifier'
 
 group :test, :development do
   gem 'debugger'
