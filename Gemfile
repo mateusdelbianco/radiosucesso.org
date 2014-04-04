@@ -7,7 +7,6 @@ gem 'rails', '~> 3.2'
 gem "mongoid"
 gem 'jquery-rails'
 gem 'koala'
-gem 'newrelic_rpm'
 gem 'unicorn'
 
 gem 'turbo-sprockets-rails3'
@@ -30,3 +29,6 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'newrelic_rpm'
+gem 'newrelic_moped'
