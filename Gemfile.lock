@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/mateusdelbianco/moped.git
+  revision: a4a52282d8e1342da02a295eb8470751907af2c6
+  tag: v1.5.2.1
+  specs:
+    moped (1.5.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,7 +83,6 @@ GEM
       moped (~> 1.4)
       origin (~> 1.0)
       tzinfo (~> 0.3.29)
-    moped (1.5.2)
     multi_json (1.10.0)
     multipart-post (2.0.0)
     newrelic_moped (0.0.9)
@@ -163,6 +169,7 @@ DEPENDENCIES
   koala
   less-rails
   mongoid
+  moped!
   newrelic_moped
   newrelic_rpm
   rails (~> 3.2)

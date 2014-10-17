@@ -4,7 +4,9 @@ ruby '2.1.3'
 
 gem 'rails', '~> 3.2'
 
-gem "mongoid"
+gem 'mongoid'
+gem 'moped', github: 'mateusdelbianco/moped', tag: 'v1.5.2.1'
+
 gem 'jquery-rails'
 gem 'koala'
 gem 'unicorn'
