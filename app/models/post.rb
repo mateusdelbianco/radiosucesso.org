@@ -1,5 +1,6 @@
 class Post
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
 
   def youtube_id
     CGI.parse(URI.parse(self.link).query)['v'].first

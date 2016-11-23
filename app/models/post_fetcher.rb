@@ -1,5 +1,6 @@
 class PostFetcher
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
 
   class << self
     def document

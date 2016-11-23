@@ -2,22 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'rails', '~> 3.2'
+gem 'rails', '~> 4.1.0'
 
-gem 'mongoid'
-gem 'moped', github: 'mateusdelbianco/moped', tag: 'v1.5.2.1'
+gem 'mongoid', '~> 5.0'
 
 gem 'jquery-rails'
 gem 'koala'
 gem 'unicorn'
 
-gem 'turbo-sprockets-rails3'
-
 gem 'sass-rails'
-gem 'coffee-rails'
-gem 'less-rails'
-
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer'
@@ -33,4 +27,3 @@ group :production do
 end
 
 gem 'newrelic_rpm'
-gem 'newrelic_moped'
